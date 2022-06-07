@@ -1,5 +1,7 @@
 package com.example.formula1.Escuderias;
 
+import com.example.formula1.data.RepositoryContract;
+
 import java.lang.ref.WeakReference;
 
 public interface EscuderiaListContract {
@@ -7,27 +9,16 @@ public interface EscuderiaListContract {
     interface View {
         void injectPresenter(Presenter presenter);
 
-        void onDataUpdated(EscuderiaListViewModel viewModel);
+        void displayEscuderiaListData(EscuderiaListViewModel viewModel);
 
         void navigateToNextScreen();
     }
 
     interface Presenter {
         void injectView(WeakReference<View> view);
-
         void injectModel(Model model);
 
-        void onResume();
-
-        void onStart();
-
-        void onRestart();
-
-        void onBackPressed();
-
-        void onPause();
-
-        void onDestroy();
+        void fetchEscuderiaListData();
     }
 
     interface Model {
@@ -38,6 +29,8 @@ public interface EscuderiaListContract {
         void onRestartScreen(String data);
 
         void onDataFromPreviousScreen(String data);
+
+        void fetchEscuderiaListData(final RepositoryContract.GetEscuderiaListCallback callback);
     }
 
 }

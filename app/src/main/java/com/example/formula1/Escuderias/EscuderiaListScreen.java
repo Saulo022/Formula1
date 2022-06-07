@@ -4,6 +4,8 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.example.formula1.R;
 import com.example.formula1.app.AppMediator;
+import com.example.formula1.data.Formula1Repository;
+import com.example.formula1.data.RepositoryContract;
 
 import java.lang.ref.WeakReference;
 
@@ -18,10 +20,10 @@ public class EscuderiaListScreen {
 
         AppMediator mediator = AppMediator.getInstance();
 
-
+        RepositoryContract repository = Formula1Repository.getInstance(context.get());
 
         EscuderiaListContract.Presenter presenter = new EscuderiaListPresenter(mediator);
-
+        EscuderiaListModel model = new EscuderiaListModel(repository);
         //EscuderiaListContract.Model model = new EscuderiaListModel(data);
 
         presenter.injectView(new WeakReference<>(view));

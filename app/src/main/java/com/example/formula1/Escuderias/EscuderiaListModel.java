@@ -1,13 +1,36 @@
 package com.example.formula1.Escuderias;
 
+import android.util.Log;
+
+import com.example.formula1.data.RepositoryContract;
+
 public class EscuderiaListModel implements EscuderiaListContract.Model {
 
     public static String TAG = EscuderiaListModel.class.getSimpleName();
 
     private String data;
+    private RepositoryContract repository;
 
-    public EscuderiaListModel(String data) {
-        this.data = data;
+    public EscuderiaListModel(RepositoryContract repository) {
+        this.repository = repository;
+    }
+
+
+    @Override
+    public void fetchEscuderiaListData(final RepositoryContract.GetEscuderiaListCallback callback){
+
+        Log.e(TAG, "fetchEscuderiaListData()");
+
+        repository.loadFormula1(
+                    true, new RepositoryContract.FetchFormula1DataCallback(){
+
+        @Override
+        public void onEscuderiaDataFetched(boolean error){
+            if (!error){
+                repository.getEscuderiaList(callback);
+                }
+            }
+        });
     }
 
     @Override

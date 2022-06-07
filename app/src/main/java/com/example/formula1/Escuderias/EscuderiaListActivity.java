@@ -3,7 +3,9 @@ package com.example.formula1.Escuderias;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.formula1.R;
@@ -21,55 +23,31 @@ public class EscuderiaListActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escuderia_list);
-        getSupportActionBar().setTitle(R.string.title_escuderia_screen);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.title_escuderia_screen);
+        }
+
 
 
         // do the setup
         EscuderiaListScreen.configure(this);
 
-        if (savedInstanceState == null) {
-            presenter.onStart();
-
-        } else {
-            presenter.onRestart();
-        }
+        presenter.fetchEscuderiaListData();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
 
-        // load the data
-        presenter.onResume();
-    }
+
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        presenter.onBackPressed();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        presenter.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        presenter.onDestroy();
-    }
-
-    @Override
-    public void onDataUpdated(EscuderiaListViewModel viewModel) {
+    public void displayEscuderiaListData(EscuderiaListViewModel viewModel) {
         //Log.e(TAG, "onDataUpdated()");
 
-        // deal with the data
-        //((TextView) findViewById(R.id.data)).setText(viewModel.data);
+
     }
 
 

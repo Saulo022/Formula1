@@ -4,4 +4,7 @@
     <string name="title_menu_screen">Menu Formula 1</string>
     <string name="title_escuderia_screen">Escuderias</string>
 
+    <string name="item_content">Item Content</string>
+    <string name="item_details">Item Details</string>
+
 </resources>

@@ -1,0 +1,16 @@
+{
+  "escuderias": [
+    {
+      "pk_idEscuderia": 1,
+      "nombre": "Ferrari",
+      "pilotos": [
+        {
+          "pk_idPiloto": 1,
+          "nombre": "Carlos Sainz",
+          "edad": "27",
+          "posicion": "5"
+        }
+      ]
+    }
+  ]
+}
