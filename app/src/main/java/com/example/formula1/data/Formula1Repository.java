@@ -117,7 +117,7 @@ public class Formula1Repository implements RepositoryContract{
 
                 for (EscuderiaItem escuderia: escuderias) {
                     for (PilotoItem piloto: escuderia.pilotosItems) {
-                        piloto.fk_idPiloto = escuderia.pk_idEscuderia;
+                        piloto.fk_idEscuderia = escuderia.pk_idEscuderia;
                         getPilotoDao().insertPiloto(piloto);
                     }
                 }

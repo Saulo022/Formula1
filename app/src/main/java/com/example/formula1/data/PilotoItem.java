@@ -26,8 +26,10 @@ public class PilotoItem {
     public int edad;
     public int posicion;
 
-    @ColumnInfo(name = "fk_idPiloto")
-    public int fk_idPiloto;
+
+
+    @ColumnInfo(name = "fk_idEscuderia")
+    public int fk_idEscuderia;
 
     @Override
     public String toString(){

@@ -29,6 +29,6 @@ public interface PilotoDao {
     @Query("SELECT * FROM pilotos WHERE pk_idPiloto = :id LIMIT 1")
     PilotoItem loadPiloto(int id);
 
-    @Query("SELECT * FROM pilotos WHERE fk_idPiloto=:fk_idPiloto")
+    @Query("SELECT * FROM pilotos WHERE fk_idEscuderia=:fk_idPiloto")
     List<PilotoItem> loadPilotos(final int fk_idPiloto);
 }
